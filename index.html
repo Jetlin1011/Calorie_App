@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="./style.css">
+<script src="https://kit.fontawesome.com/848241403b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="input-group input1 mb-3">
+        <input type="text" class="form-control form1" id="food" placeholder="eg: Enter cake or 1kg cake" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <button class="btn btn1 btn-outline-secondary" onclick="find()" type="button" id="button-addon1">check</button>
+      </div>
+      
+      <div class="circle_container">
+      <div class="circle1"><p id="calP" class="circle_p1">0</p><p  class="circle_name1">calories</p></div>
+      <div class="circle2"><p class="circle_name2_0">per</p><p id="amount"class=" circle_p2_0">0</p> <span class="circle_name2_0">grams</span> </div>
+    </div>
+
+
+      <div class="detail_container">
+    <div class="detail_container1">
+      <!-- <p class="fat">Fat: <span class="fat1" id="fat1">0</span> g</p> -->
+
+        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <p class="fat">Fat: <span class="fat1" id="fat1">0</span> g</p>
+            <div id="fatbardiv" class="progress-bar" style="width: 0%"><span id="fatpercent"class="percent"> 0%</span></div>
+          </div>
+          
+          <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+            <p class="carbohydrate">Carbohydrate: <span class="carbohydrate1" id="carbohydrate1">0</span> g</p>
+
+            <div class="progress-bar" id="carbardiv" style="width: 0%"> <span id="carpercent"class="percent"> 0%</span></div>
+          </div>
+    </div>
+    <div class="detail_container2">
+        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+          <p class="protien">Protein: <span class="protein1" id="protein1">0</span> g</p>
+            <div class="progress-bar" id="probardiv" style="width: 0%"><span id="propercent"class="percent"> 0%</span></div>
+          </div>
+          <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <p class="sugar">Sugar: <span class="sugar1" id="sugar1">0</span> g</p>
+            <div class="progress-bar" id="sugarbardiv" style="width: 0%"> <span id="sugarpercent"class="percent"> 0%</span></div>
+          </div>
+    </div>
+</div>
+<script>
+
+function find(){
+    food1=food.value;
+url=`https://api.calorieninjas.com/v1/nutrition?query=${food1}`;
+const headers= {
+  'X-Api-Key': '+Nb2i+c1Sgot+gefSzW4DQ==SydhVJP361sXBzF1',
+};
+
+fetch(url, {headers}).then(response=>response.json()).then(data=>showData(data)).catch(data=>noData())
+
+function showData(data2){
+  console.log(data2);
+var cal=data2.items[0].calories;
+var car=data2.items[0].carbohydrates_total_g;
+var pro=data2.items[0].protein_g;
+var fat=data2.items[0].fat_total_g;
+var sugar=data2.items[0].sugar_g;
+var totalfood=data2.items[0].serving_size_g;
+
+var carbar=parseFloat(((car/totalfood)*100).toFixed(2))
+var probar=parseFloat(((pro/totalfood)*100).toFixed(2))
+var fatbar=parseFloat(((fat/totalfood)*100).toFixed(2))
+var sugarbar=parseFloat(((sugar/totalfood)*100).toFixed(2))
+
+document.getElementById("calP").innerHTML=cal;
+document.getElementById("fat1").innerHTML=fat;
+document.getElementById("carbohydrate1").innerHTML=car;
+document.getElementById("protein1").innerHTML=pro;
+document.getElementById("sugar1").innerHTML=sugar;
+document.getElementById("amount").innerHTML=totalfood;
+
+document.getElementById("fatpercent").innerHTML=fatbar.toFixed(1)+"%";
+document.getElementById("carpercent").innerHTML= carbar+"%";
+document.getElementById("propercent").innerHTML= probar+"%";
+document.getElementById("sugarpercent").innerHTML= sugarbar+"%";
+
+
+
+document.getElementById("fatbardiv").style.width=fatbar+"%";
+document.getElementById("carbardiv").style.width=carbar+"%";
+document.getElementById("probardiv").style.width=probar+"%";
+document.getElementById("sugarbardiv").style.width=sugarbar+"%";
+
+
+
+
+}
+
+function noData(){
+
+  alert("Please enter the correct name of the item and verify the format of the data entered !");
+  location.reload();
+
+}
+}
+
+
+</script>
+</body>
+
+</html>

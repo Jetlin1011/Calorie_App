@@ -1,0 +1,192 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background:no-repeat url("photos/pineapple-supply-co-h0L5OtnGNOA-unsplash.jpg");
+    background-size: cover;
+    
+}
+
+.input1{
+    max-width: 50%;
+margin: 50px;
+margin-left: 8%;
+}
+.btn1{
+    background-color: rgb(146, 40, 245);
+    color: aliceblue;
+}
+.circle_container{
+    width: 91%;
+    display: flex;
+    height: 180px;
+    justify-content:space-evenly;
+    margin-left: 6%;
+    margin-top: 5%;
+}
+.circle1, .circle2{
+    background-color:rgb(13, 11, 11);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 13px solid blueviolet;
+    text-align: center;
+    padding-right: 3px;
+}
+.circle_p1, .circle_p2{
+    font-size:2.6rem;
+    color: aliceblue;
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+}
+.circle_name2, .circle_name1{
+    color: aliceblue;
+}
+.circle_name2_0{
+    font-size:large;
+    color: aliceblue;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+}
+.circle_p2_0 {
+    font-size: 1.7rem;
+    color: aliceblue;
+    margin-bottom: 0rem;
+    
+}
+.detail_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0%;    
+    width: 100%;
+    padding: 5%;
+}
+.detail_container1, .detail_container2{
+    width: 50%;
+}
+.progress{
+    margin: 30px;
+    margin-bottom: 65px;
+    height: 8vh;
+}
+.progress-bar{
+    background-color: rgb(144, 37, 245);
+    text-align: left;
+
+}
+.fat, .carbohydrate{
+    position: absolute;
+    left:19%;
+    padding: 1%;
+    font-weight: bolder;
+    font-size:1.3rem; ;
+
+}
+.protien, .sugar{
+    position: absolute;
+    right:20%;
+    padding: 1%;
+    font-weight:bolder;
+    font-size:1.3rem; ;
+
+}
+@media(max-width:1060px){
+    .protien, .sugar,.fat, .carbohydrate{
+        font-size:1rem; ;
+
+    }
+}
+@media(max-width:810px){
+    .detail_container{
+       
+        padding: 3%;
+    }
+    .input1{
+        max-width: 60%;
+  
+    }
+    .fat, .carbohydrate{
+        left:15%;    
+    }
+}
+
+@media(max-width:620px){
+
+    .detail_container{
+        display:block;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 5%;
+    }
+    .detail_container1, .detail_container2{
+        width: 100%;
+    }
+    .protien, .sugar,.fat, .carbohydrate{
+        left:33%
+
+    }
+}
+@media(max-width:430px){
+    .input1{
+        max-width: 88%;
+  
+    }
+    .circle1, .circle2{
+        width: 155px;
+        height: 155px;
+        border-radius: 50%;
+        padding-right: 3px;
+        border: 10px solid blueviolet;
+
+    }
+    .progress{
+        margin: 30px;
+        margin-bottom: 58px;
+        height: 7vh;
+    }
+    .circle_name2_0{
+        margin-bottom: 1rem;
+        margin-top: 0rem;
+    
+    }
+    .circle_p2_0 {
+        font-size:x-large;
+        margin-bottom: 0rem;
+        
+    }
+}
+
+@media(max-width:370px){
+
+    .circle_container{
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 5%;
+    }
+    .circle1, .circle2{
+        width: 151px;
+        height: 151px;
+        border: 7px solid blueviolet;
+
+    }
+    .progress{
+        margin-bottom: 50px;
+        height: 5vh;
+    }
+    .detail_container{
+       
+        padding: 0%;
+    }
+    .protien, .sugar,.fat, .carbohydrate{
+        left:28%
+
+    }
+}
+.percent{
+    margin-left: 2%;
+    color:black;
+    position: absolute;
+}
