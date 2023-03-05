@@ -69,7 +69,7 @@ margin-left: 8%;
 .progress{
     margin: 30px;
     margin-bottom: 65px;
-    height: 8vh;
+    height: 56px;
 }
 .progress-bar{
     background-color: rgb(144, 37, 245);
@@ -145,7 +145,7 @@ margin-left: 8%;
     .progress{
         margin: 30px;
         margin-bottom: 58px;
-        height: 7vh;
+        height: 50px;
     }
     .circle_name2_0{
         margin-bottom: 1rem;
@@ -174,7 +174,7 @@ margin-left: 8%;
     }
     .progress{
         margin-bottom: 50px;
-        height: 5vh;
+        height: 35px;
     }
     .detail_container{
        
